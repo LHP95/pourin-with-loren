@@ -172,14 +172,6 @@
     .footer-links { display: flex; gap: 1.25rem; flex-wrap: wrap; }
     .footer-links a { color: var(--eosine-pink); text-decoration: underline; cursor: pointer; }
 
-    /* GTM practice drawer */
-    .gtm-lab-toggle { position: fixed; bottom: 1.25rem; right: 1.25rem; z-index: 99; background: var(--black); color: var(--paper); border: 2px solid var(--paper); border-radius: 999px; padding: 0.6rem 1rem; font-family: var(--font-mono); font-size: 0.76rem; cursor: pointer; box-shadow: 0 10px 25px rgba(0,0,0,0.25); display: flex; align-items: center; gap: 0.5rem; }
-    .gtm-lab-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--eosine-pink); }
-    .gtm-lab-drawer { position: fixed; bottom: 4.25rem; right: 1.25rem; width: min(460px, calc(100vw - 2.5rem)); max-height: 78vh; overflow-y: auto; z-index: 99; background: var(--black); color: var(--paper); border: 2px solid var(--paper); border-radius: 12px; padding: 1.25rem; font-family: var(--font-mono); font-size: 0.76rem; box-shadow: 0 20px 50px rgba(0,0,0,0.4); display: none; }
-    .gtm-lab-drawer.open { display: block; }
-    .gtm-lab-drawer h4 { font-size: 0.85rem; margin-bottom: 0.5rem; color: var(--eosine-pink); }
-    .gtm-lab-btn { background: var(--diamine-green); color: var(--paper); border: none; padding: 0.45rem 0.75rem; border-radius: 4px; font-family: var(--font-mono); font-size: 0.74rem; cursor: pointer; }
-    .gtm-lab-log { background: #08090a; border: 1px solid #2a2d2f; border-radius: 6px; padding: 0.75rem; margin-top: 0.75rem; max-height: 210px; overflow-y: auto; white-space: pre-wrap; word-break: break-word; color: #9be3b8; }
 
     @media (max-width: 900px) {
       .hero, .packages-grid, .booking-grid { grid-template-columns: 1fr; }
@@ -494,26 +486,6 @@
     </footer>
   </div>
 
-  <button type="button" class="gtm-lab-toggle" id="btn-toggle-gtm-lab" onclick="toggleGtmLab()">
-    <span class="gtm-lab-dot"></span>
-    <span>GTM &amp; dataLayer Lab</span>
-  </button>
-
-  <aside class="gtm-lab-drawer" id="gtm-lab-drawer" aria-label="Google Tag Manager Practice Helper">
-    <h4>GTM / GA4 / Ads / Floodlight Lab</h4>
-    <p style="color: #cbd5e1; margin-bottom: 0.5rem;">
-      Active Container: <strong id="lab-active-gtm-id" style="color: #fff;">GTM-PRMMQVHL</strong>
-    </p>
-    <div style="display: flex; gap: 0.4rem; flex-wrap: wrap; margin-top: 0.5rem;">
-      <button type="button" class="gtm-lab-btn" onclick="simulateAdClickGclid()">
-        Simulate ?gclid= Ad Click
-      </button>
-      <button type="button" class="gtm-lab-btn" onclick="fireTestFloodlightEvent()">
-        Fire Test Floodlight Event
-      </button>
-    </div>
-    <div class="gtm-lab-log" id="gtm-lab-log">Waiting for dataLayer events...</div>
-  </aside>
 
   <script>
     // ---- Pouring-kettle cursor for the submit button ----
@@ -560,7 +532,7 @@
       dropdown.addEventListener('change', function(e) {
         if (e.target.name !== 'interest') return;
         updateExtrasSummary();
-        logToLab({ event: 'select_extra', extra_value: e.target.value, extra_checked: e.target.checked });
+        pushDataLayer({ event: 'select_extra', extra_value: e.target.value, extra_checked: e.target.checked });
       });
       // Close when clicking anywhere outside the dropdown
       document.addEventListener('click', function(e) {
@@ -568,29 +540,24 @@
       });
     });
 
-    function logToLab(payload) {
+    function pushDataLayer(payload) {
       window.dataLayer = window.dataLayer || [];
       window.dataLayer.push(payload);
-      var logEl = document.getElementById('gtm-lab-log');
-      if (logEl) {
-        var timestamp = new Date().toLocaleTimeString();
-        logEl.textContent = '[' + timestamp + '] dataLayer.push:\n' + JSON.stringify(payload, null, 2) + '\n\n' + logEl.textContent;
-      }
     }
 
     function selectExperience(eventType, slot) {
       document.getElementById('event_type').value = eventType;
       document.getElementById('preferred_slot').value = slot;
-      logToLab({ event: 'select_experience', experience_type: eventType, recommended_slot: slot });
+      pushDataLayer({ event: 'select_experience', experience_type: eventType, recommended_slot: slot });
       document.getElementById('inquiry-section').scrollIntoView({ behavior: 'smooth' });
     }
 
     function pushCtaClick(ctaLocation) {
-      logToLab({ event: 'cta_click', cta_location: ctaLocation, service_city: 'Mountain View' });
+      pushDataLayer({ event: 'cta_click', cta_location: ctaLocation, service_city: 'Mountain View' });
     }
 
     function pushMenuDownload() {
-      logToLab({
+      pushDataLayer({
         event: 'file_download',
         file_name: 'pourin-with-loren-bean-list.pdf',
         file_extension: 'pdf',
@@ -681,7 +648,7 @@
           }
 
           // ✅ Formspree confirmed receipt — NOW it's a real conversion.
-          logToLab(leadPayload);
+          pushDataLayer(leadPayload);
 
           try {
             sessionStorage.setItem('mv_barista_last_lead', JSON.stringify({
@@ -707,7 +674,7 @@
         })
         .catch(function(err) {
           // ❌ Submission failed — track it so you can monitor form errors in GA4.
-          logToLab({ event: 'form_submit_error', form_id: 'lead-booking-form', error_message: String(err.message || err).slice(0, 100) });
+          pushDataLayer({ event: 'form_submit_error', form_id: 'lead-booking-form', error_message: String(err.message || err).slice(0, 100) });
           errorEl.textContent = 'Hmm, that didn\'t go through. Please try again in a moment.';
           errorEl.style.display = 'block';
           submitBtn.disabled = false;
@@ -715,28 +682,8 @@
         });
     }
 
-    function toggleGtmLab() {
-      document.getElementById('gtm-lab-drawer').classList.toggle('open');
-    }
-
-    function simulateAdClickGclid() {
-      var mockGclid = 'TeStGcLiD_MVBarista_' + Math.floor(1000 + Math.random() * 9000);
-      window.location.href = window.location.pathname + '?gclid=' + mockGclid + '&utm_source=google&utm_medium=cpc&utm_campaign=dad_mv_weekend_barista';
-    }
-
-    function fireTestFloodlightEvent() {
-      var testOrd = 'FL-LEAD-' + Math.floor(10000 + Math.random() * 90000);
-      logToLab({
-        event: 'floodlight_custom_test',
-        floodlight_ord: testOrd,
-        u1_event_type: document.getElementById('event_type').value,
-        u2_day_slot: document.getElementById('preferred_slot').value,
-        u3_zip: document.getElementById('postal_code').value || '94041'
-      });
-    }
-
     window.addEventListener('DOMContentLoaded', function() {
-      logToLab({
+      pushDataLayer({
         event: 'barista_page_ready',
         active_gtm_container: 'GTM-PRMMQVHL',
         url_query: window.location.search || 'none'

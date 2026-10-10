@@ -107,11 +107,7 @@
     .btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; padding: 0.75rem 1.4rem; border-radius: 6px; font-weight: 600; font-size: 0.92rem; text-decoration: none; cursor: pointer; transition: all 0.2s ease; background-color: var(--accent-crema); color: #fff; border: none; }
     .btn:hover { background-color: var(--accent-crema-hover); }
     .site-footer { max-width: 1180px; width: 100%; margin: 0 auto; padding: 2.5rem 1.5rem 4rem; border-top: 1px solid var(--border-hairline); font-size: 0.85rem; color: var(--ink-muted); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
-    .gtm-lab-toggle { position: fixed; bottom: 1.25rem; right: 1.25rem; z-index: 99; background: var(--ink-espresso); color: var(--bg-oat); border: 1px solid hsla(34, 42%, 96%, 0.25); border-radius: 8px; padding: 0.65rem 1rem; font-family: var(--font-mono); font-size: 0.78rem; cursor: pointer; box-shadow: 0 10px 25px rgba(0,0,0,0.22); display: flex; align-items: center; gap: 0.5rem; }
-    .gtm-lab-dot { width: 8px; height: 8px; border-radius: 50%; background: #22c55e; }
-    .gtm-lab-drawer { position: fixed; bottom: 4.25rem; right: 1.25rem; width: min(460px, calc(100vw - 2.5rem)); max-height: 75vh; overflow-y: auto; z-index: 99; background: #171311; color: #f5efe6; border: 1px solid #3a302b; border-radius: 10px; padding: 1.25rem; font-family: var(--font-mono); font-size: 0.76rem; box-shadow: 0 20px 50px rgba(0,0,0,0.4); display: none; }
-    .gtm-lab-drawer.open { display: block; }
-    .gtm-lab-log { background: #0e0b0a; border: 1px solid #2e2622; border-radius: 6px; padding: 0.75rem; margin-top: 0.75rem; max-height: 240px; overflow-y: auto; white-space: pre-wrap; word-break: break-word; color: #a7f3d0; }
+
     @media (max-width: 640px) { .confirmation-card { padding: 2rem 1.5rem; } .inquiry-recap { grid-template-columns: 1fr; } }
   </style>
 </head>
@@ -203,45 +199,6 @@
     </div>
   </footer>
 
-  <button type="button" class="gtm-lab-toggle" id="btn-toggle-gtm-lab" onclick="document.getElementById('gtm-lab-drawer').classList.toggle('open')">
-    <span class="gtm-lab-dot"></span>
-    <span>GTM &amp; dataLayer Lab</span>
-  </button>
-
-  <aside class="gtm-lab-drawer" id="gtm-lab-drawer" aria-label="Google Tag Manager Practice Helper">
-    <h4 style="color: #f7b267; margin-bottom: 0.4rem;">Thank-You Page dataLayer</h4>
-    <p style="color: #cbd5e1;">
-      Active Container: <strong id="lab-active-gtm-id" style="color: #fff;">GTM-PRMMQVHL</strong>
-    </p>
-    <div class="gtm-lab-log" id="gtm-lab-log"></div>
-  </aside>
-
-  <script>
-    (function() {
-      var info = window.__LEAD_CONFIRMATION__ || {};
-      var labelMap = {
-        v60_bar: 'The V60 Bar',
-        aeropress_lab: 'The Aeropress Lab',
-        tasting_flight: 'The Tasting Flight',
-        not_sure: 'Not sure yet',
-        friday_afternoon: 'Fri afternoon (12–5 PM)',
-        friday_evening: 'Fri evening (5–9 PM)',
-        saturday_daytime: 'Sat daytime (8 AM–4 PM)',
-        saturday_evening: 'Sat evening (4–9 PM)',
-        sunday_daytime: 'Sun daytime (8 AM–6 PM)'
-      };
-
-      if (info.firstName && info.firstName !== 'Friend') {
-        document.getElementById('visitor-name-heading').textContent = ', ' + info.firstName;
-      }
-      document.getElementById('recap-lead-id').textContent = info.leadId || 'MVB-102948';
-      document.getElementById('recap-event-type').textContent = labelMap[info.eventType] || info.eventType;
-      document.getElementById('recap-slot').textContent = labelMap[info.slot] || info.slot;
-      document.getElementById('recap-guests').textContent = (info.guests || '30–60') + ' Guests (ZIP ' + (info.zip || '94041') + ')';
-
-      document.getElementById('gtm-lab-log').textContent =
-        '// Fired on thank-you.html load:\n' +
-        JSON.stringify(window.dataLayer[0], null, 2);
     })();
   </script>
 </body>
