@@ -6,6 +6,9 @@
   <title>Pourin' with Loren | Pop-Up V60 &amp; Aeropress Bar — Mountain View, CA</title>
   <meta name="description" content="A pop-up V60 pour-over and Aeropress bar with rare single-origin beans for your weekend gathering in Mountain View. Fridays through Sundays." />
 
+  <!-- Termly Consent Management & Google Consent Mode v2 Auto-Blocker -->
+  <script src="https://app.termly.io/resource-blocker/e97a730d-bf5b-44ff-ae0c-71f8bef57b0e?autoBlock=on"></script>
+
   <!-- 1. INITIALIZE DATA LAYER (Must come BEFORE the Google Tag Manager snippet) -->
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -61,6 +64,15 @@
     .nav-links { display: flex; gap: 1.75rem; list-style: none; }
     .nav-links a { text-decoration: none; color: var(--black); font-weight: 500; font-size: 0.92rem; }
     .nav-links a:hover { color: var(--diamine-green); text-decoration: underline; text-underline-offset: 4px; }
+    .nav-actions { display: flex; align-items: center; gap: 0.75rem; }
+    .nav-phone { display: inline-flex; align-items: center; gap: 0.4rem; font-family: var(--font-mono); font-size: 0.84rem; font-weight: 500; color: var(--black); text-decoration: none; padding: 0.6rem 0.95rem; border: var(--line); border-radius: 999px; background: var(--paper); box-shadow: var(--pop-shadow); transition: transform 0.15s ease, background-color 0.15s ease, box-shadow 0.15s ease; }
+    .nav-phone:hover { background: var(--eosine-pink); transform: translate(-2px, -2px); box-shadow: 6px 6px 0 var(--black); }
+    @media (max-width: 600px) {
+      .nav-container { padding: 0.75rem 1rem; gap: 0.6rem; }
+      .brand-sub { display: none; }
+      .nav-phone span { display: none; }
+      .nav-phone { padding: 0.6rem; }
+    }
 
     /* Buttons */
     .btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; padding: 0.7rem 1.3rem; border: var(--line); border-radius: 999px; font-family: var(--font-sans); font-weight: 600; font-size: 0.92rem; text-decoration: none; cursor: pointer; box-shadow: var(--pop-shadow); transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease; }
@@ -215,9 +227,17 @@
         <li><a href="#inquiry-section" id="nav-link-inquire">Book</a></li>
       </ul>
 
-      <a href="#inquiry-section" class="btn btn-primary" id="btn-header-book" onclick="pushCtaClick('header_inquire')">
-        Book a Date
-      </a>
+      <div class="nav-actions">
+        <a href="tel:4083726546" class="nav-phone" id="btn-header-phone">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+          </svg>
+          <span>(408) 372-6546</span>
+        </a>
+        <a href="#inquiry-section" class="btn btn-primary" id="btn-header-book" onclick="pushCtaClick('header_inquire')">
+          Book a Date
+        </a>
+      </div>
     </nav>
   </header>
 
@@ -234,15 +254,12 @@
             <a href="#inquiry-section" class="btn btn-primary" id="btn-hero-inquire" onclick="pushCtaClick('hero_primary_inquire')">
               Check My Date
             </a>
-            <button type="button" class="btn btn-outline" id="btn-download-menu" onclick="pushMenuDownload()">
-              Bean List (PDF)
-            </button>
           </div>
 
           <div class="schedule-strip" id="weekend-hours">
-            <span class="schedule-pill"><b>FRI</b> 12–9 PM</span>
-            <span class="schedule-pill"><b>SAT</b> 8 AM–9 PM</span>
-            <span class="schedule-pill"><b>SUN</b> 8 AM–6 PM</span>
+            <span class="schedule-pill"><b>FRI</b> Evening</span>
+            <span class="schedule-pill"><b>SAT</b> Morning &bull; Afternoon &bull; Evening</span>
+            <span class="schedule-pill"><b>SUN</b> Morning &bull; Afternoon &bull; Evening</span>
           </div>
         </div>
 
@@ -305,7 +322,7 @@
               <li>Brewed to order</li>
             </ul>
           </div>
-          <button type="button" class="btn btn-outline" id="btn-exp-v60-bar" onclick="selectExperience('v60_bar', 'saturday_daytime')">
+          <button type="button" class="btn btn-outline" id="btn-exp-v60-bar" onclick="selectExperience('v60_bar', 'saturday_morning')">
             Book the V60 Bar
           </button>
         </article>
@@ -321,7 +338,7 @@
               <li>Great for bigger groups</li>
             </ul>
           </div>
-          <button type="button" class="btn btn-primary" id="btn-exp-aeropress-lab" onclick="selectExperience('aeropress_lab', 'friday_afternoon')">
+          <button type="button" class="btn btn-primary" id="btn-exp-aeropress-lab" onclick="selectExperience('aeropress_lab', 'saturday_afternoon')">
             Book the Aeropress Lab
           </button>
         </article>
@@ -337,17 +354,10 @@
               <li>Mini brew-along</li>
             </ul>
           </div>
-          <button type="button" class="btn btn-outline" id="btn-exp-tasting-flight" onclick="selectExperience('tasting_flight', 'sunday_daytime')">
+          <button type="button" class="btn btn-outline" id="btn-exp-tasting-flight" onclick="selectExperience('tasting_flight', 'sunday_morning')">
             Book a Tasting Flight
           </button>
         </article>
-      </div>
-
-      <div class="menu-banner">
-        <strong>What's in the hopper this month?</strong>
-        <button type="button" class="btn btn-outline" id="btn-banner-menu-download" onclick="pushMenuDownload()">
-          Get the Bean List
-        </button>
       </div>
     </section>
 
@@ -398,11 +408,13 @@
               <div class="form-group">
                 <label for="preferred_slot">When? *</label>
                 <select id="preferred_slot" name="preferred_slot">
-                  <option value="friday_afternoon">Fri afternoon (12–5 PM)</option>
-                  <option value="friday_evening">Fri evening (5–9 PM)</option>
-                  <option value="saturday_daytime" selected>Sat daytime (8 AM–4 PM)</option>
-                  <option value="saturday_evening">Sat evening (4–9 PM)</option>
-                  <option value="sunday_daytime">Sun daytime (8 AM–6 PM)</option>
+                  <option value="friday_evening">Friday evening</option>
+                  <option value="saturday_morning" selected>Saturday morning</option>
+                  <option value="saturday_afternoon">Saturday afternoon</option>
+                  <option value="saturday_evening">Saturday evening</option>
+                  <option value="sunday_morning">Sunday morning</option>
+                  <option value="sunday_afternoon">Sunday afternoon</option>
+                  <option value="sunday_evening">Sunday evening</option>
                 </select>
               </div>
             </div>
@@ -480,8 +492,9 @@
         <strong>Pourin' with Loren</strong> &mdash; V60 &amp; Aeropress pop-up, Mountain View, CA
       </div>
       <div class="footer-links">
-        <a onclick="alert('Privacy Policy: Pourin\' with Loren collects contact information solely to respond to event inquiries and measure advertising effectiveness via first-party cookies and Google Tag Manager.')">Privacy</a>
-        <a onclick="alert('Terms of Service: Bookings are confirmed upon date reservation for Friday afternoon through Sunday events.')">Terms</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+        <a href="#" class="termly-display-preferences">Consent Preferences</a>
       </div>
     </footer>
   </div>
@@ -554,16 +567,6 @@
 
     function pushCtaClick(ctaLocation) {
       pushDataLayer({ event: 'cta_click', cta_location: ctaLocation, service_city: 'Mountain View' });
-    }
-
-    function pushMenuDownload() {
-      pushDataLayer({
-        event: 'file_download',
-        file_name: 'pourin-with-loren-bean-list.pdf',
-        file_extension: 'pdf',
-        link_text: 'Bean List'
-      });
-      alert('Bean list download simulated! An event ("file_download") was just pushed to window.dataLayer so you can trigger a GA4 or Google Ads micro-conversion tag.');
     }
 
     function formatE164Phone(rawPhone) {

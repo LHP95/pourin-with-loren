@@ -6,6 +6,9 @@
   <title>Thank You — We'll Reach Out Soon | Pourin' with Loren Mountain View</title>
   <meta name="description" content="Thank you for inquiring with Pourin' with Loren. Our Mountain View lead barista will reach out within 24 hours." />
 
+  <!-- Termly Consent Management & Google Consent Mode v2 Auto-Blocker -->
+  <script src="https://app.termly.io/resource-blocker/e97a730d-bf5b-44ff-ae0c-71f8bef57b0e?autoBlock=on"></script>
+
   <!-- 1. INITIALIZE DATA LAYER ON THANK-YOU PAGE LOAD -->
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -195,10 +198,41 @@
       Castro Street &bull; Old Mountain View &bull; Shoreline West &bull; Los Altos
     </div>
     <div>
-      Questions? Reach out via the booking form or reply directly to your confirmation email.
+    <div style="margin-top: 0.5rem;">
+      <a href="privacy.html" style="color: var(--eosine-pink, #f37f94); text-decoration: underline; margin-right: 0.75rem;">Privacy Policy</a>
+      <a href="terms.html" style="color: var(--eosine-pink, #f37f94); text-decoration: underline; margin-right: 0.75rem;">Terms of Service</a>
+      <a href="#" class="termly-display-preferences" style="color: var(--eosine-pink, #f37f94); text-decoration: underline;">Consent Preferences</a>
     </div>
   </footer>
 
+  <script>
+    (function() {
+      var info = window.__LEAD_CONFIRMATION__ || {};
+      var labelMap = {
+        v60_bar: 'The V60 Bar',
+        aeropress_lab: 'The Aeropress Lab',
+        tasting_flight: 'The Tasting Flight',
+        not_sure: 'Not sure yet',
+        friday_evening: 'Friday evening',
+        saturday_morning: 'Saturday morning',
+        saturday_afternoon: 'Saturday afternoon',
+        saturday_evening: 'Saturday evening',
+        sunday_morning: 'Sunday morning',
+        sunday_afternoon: 'Sunday afternoon',
+        sunday_evening: 'Sunday evening',
+        // Legacy fallback
+        friday_afternoon: 'Friday afternoon',
+        saturday_daytime: 'Saturday morning/afternoon',
+        sunday_daytime: 'Sunday morning/afternoon'
+      };
+
+      if (info.firstName && info.firstName !== 'Friend') {
+        document.getElementById('visitor-name-heading').textContent = ', ' + info.firstName;
+      }
+      document.getElementById('recap-lead-id').textContent = info.leadId || 'MVB-102948';
+      document.getElementById('recap-event-type').textContent = labelMap[info.eventType] || info.eventType;
+      document.getElementById('recap-slot').textContent = labelMap[info.slot] || info.slot;
+      document.getElementById('recap-guests').textContent = (info.guests || '10–20') + ' Guests (ZIP ' + (info.zip || '94041') + ')';
     })();
   </script>
 </body>
