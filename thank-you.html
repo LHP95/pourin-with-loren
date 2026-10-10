@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Thank You — We'll Reach Out Soon | Pourin' with Loren Mountain View</title>
   <meta name="description" content="Thank you for inquiring with Pourin' with Loren. Our Mountain View lead barista will reach out within 24 hours." />
+  <link rel="icon" type="image/svg+xml" href="logo-icon.svg" />
+  <link rel="icon" type="image/png" sizes="192x192" href="logo-pmax-square-1200.png" />
+  <link rel="apple-touch-icon" href="logo-pmax-square-1200.png" />
 
   <!-- Termly Consent Management & Google Consent Mode v2 Auto-Blocker -->
   <script src="https://app.termly.io/resource-blocker/e97a730d-bf5b-44ff-ae0c-71f8bef57b0e?autoBlock=on"></script>
@@ -90,7 +93,8 @@
     .site-header { background: hsla(34, 42%, 96%, 0.92); border-bottom: 1px solid var(--border-hairline); }
     .nav-container { max-width: 1180px; margin: 0 auto; padding: 1rem 1.5rem; display: flex; align-items: center; justify-content: space-between; }
     .brand { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; color: var(--ink-espresso); }
-    .brand-mark { width: 38px; height: 38px; border-radius: 50%; background: var(--ink-espresso); color: var(--bg-oat); display: grid; place-items: center; }
+    .brand-mark { width: 44px; height: 38px; display: flex; align-items: center; justify-content: center; }
+    .brand-logo-img { width: 44px; height: 38px; display: block; filter: drop-shadow(2px 2px 0 var(--border-strong)); }
     .brand-text { display: flex; flex-direction: column; }
     .brand-name { font-family: var(--font-display); font-size: 1.25rem; font-weight: 600; letter-spacing: -0.02em; line-height: 1.1; }
     .brand-sub { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-muted); }
@@ -128,13 +132,7 @@
     <nav class="nav-container" aria-label="Main Navigation">
       <a href="index.html" class="brand">
         <span class="brand-mark" aria-hidden="true">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M17 8h1a4 4 0 1 1 0 8h-1" />
-            <path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z" />
-            <line x1="6" y1="2" x2="6" y2="4" />
-            <line x1="10" y1="2" x2="10" y2="4" />
-            <line x1="14" y1="2" x2="14" y2="4" />
-          </svg>
+          <img src="logo-icon.svg" alt="Pourin' with Loren Icon" class="brand-logo-img" width="44" height="38" />
         </span>
         <span class="brand-text">
           <span class="brand-name">Pourin' with Loren</span>

@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="140 110 520 400" width="100%" height="100%">
+  <defs>
+    <style>
+      .stroke-main {
+        stroke: #124329;
+        stroke-width: 14;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+      .stroke-med {
+        stroke: #124329;
+        stroke-width: 9;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+      .stroke-fine {
+        stroke: #124329;
+        stroke-width: 5;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+    </style>
+  </defs>
+
+  <!-- The Arch -->
+  <path d="M 180 475 
+           L 180 340 
+           A 220 220 0 0 1 620 340 
+           L 620 475 
+           Z" 
+        fill="#f37f94" 
+        stroke="#124329" 
+        stroke-width="16" 
+        stroke-linejoin="round" />
+
+  <!-- Ground Baseline -->
+  <line x1="145" y1="475" x2="655" y2="475" stroke="#124329" stroke-width="16" stroke-linecap="round" />
+
+  <!-- LEFT: Kettle -->
+  <g id="kettle">
+    <path d="M 260 415 
+             C 210 405, 175 365, 185 295 
+             C 188 275, 202 265, 214 270 
+             C 206 277, 205 288, 204 300 
+             C 200 340, 225 365, 265 375" 
+          fill="#f7f2ea" 
+          class="stroke-main" />
+    <path d="M 268 310 L 336 310 L 348 450 L 252 450 Z" fill="#f7f2ea" class="stroke-main" />
+    <path d="M 250 450 L 350 450 L 350 466 L 250 466 Z" fill="#124329" class="stroke-med" />
+    <path d="M 276 310 L 328 310 L 324 298 L 280 298 Z" fill="#f7f2ea" class="stroke-med" />
+    <rect x="295" y="284" width="14" height="14" rx="3" fill="#ae5224" class="stroke-med" />
+    <path d="M 336 325 C 368 330, 376 365, 368 400 C 362 425, 348 435, 344 435" fill="none" class="stroke-main" />
+  </g>
+
+  <!-- RIGHT: V60 -->
+  <g id="v60">
+    <path d="M 488 415 L 572 415 L 562 466 L 498 466 Z" fill="#f7f2ea" class="stroke-main" />
+    <path d="M 493 430 L 567 430 L 560 463 L 500 463 Z" fill="#ae5224" />
+    <path d="M 570 420 C 596 420, 596 452, 564 456" fill="none" class="stroke-main" />
+    <rect x="475" y="402" width="110" height="15" rx="6" fill="#124329" class="stroke-med" />
+    <path d="M 466 305 L 594 305 L 556 402 L 504 402 Z" fill="#f7f2ea" class="stroke-main" />
+    <path d="M 488 318 C 502 340, 514 370, 518 395" fill="none" class="stroke-fine" />
+    <path d="M 530 318 C 535 340, 536 370, 532 395" fill="none" class="stroke-fine" />
+    <path d="M 572 318 C 562 340, 554 370, 548 395" fill="none" class="stroke-fine" />
+    <path d="M 586 322 C 614 326, 618 358, 574 368" fill="none" class="stroke-main" />
+  </g>
+
+  <!-- CENTER: AeroPress -->
+  <g id="aeropress">
+    <rect x="352" y="152" width="96" height="26" rx="12" fill="#124329" class="stroke-main" />
+    <rect x="372" y="178" width="56" height="120" fill="#f7f2ea" class="stroke-main" />
+    <rect x="370" y="296" width="60" height="20" rx="4" fill="#124329" class="stroke-med" />
+    <rect x="360" y="240" width="80" height="185" rx="6" fill="#f7f2ea" class="stroke-main" />
+    <rect x="368" y="316" width="64" height="106" fill="#ae5224" />
+    <rect x="340" y="425" width="120" height="24" rx="10" fill="#124329" class="stroke-main" />
+    <rect x="354" y="449" width="92" height="14" rx="5" fill="#124329" class="stroke-med" />
+    <circle cx="400" cy="469" r="4.5" fill="#ae5224" />
+  </g>
+</svg>
