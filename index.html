@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pourin' with Loren | Pop-Up V60 &amp; Aeropress Bar — Mountain View, CA</title>
+  <meta name="description" content="A pop-up V60 pour-over and Aeropress bar with rare single-origin beans for your weekend gathering in Mountain View. Fridays through Sundays." />
+
+  <!-- 1. INITIALIZE DATA LAYER (Must come BEFORE the Google Tag Manager snippet) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      page_type: 'landing_page',
+      service_location: 'Mountain View, CA',
+      service_model: 'weekend_pour_over_bar'
+    });
+  </script>
+
+  <!-- 2. GOOGLE TAG MANAGER (<head> snippet — Container ID: GTM-PRMMQVHL) -->
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w.__ACTIVE_GTM_ID__=i;w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-PRMMQVHL');</script>
+  <!-- End Google Tag Manager -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;1,9..144,500&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* Palette: Sanzo Wada, "A Dictionary of Color Combinations" — #242 */
+    :root {
+      --eosine-pink: #f37f94;
+      --diamine-green: #1a7444;
+      --burnt-sienna: #ae5224;
+      --black: #111314;
+      --paper: #f7f2ea;
+      --paper-dim: #efe7da;
+      --line: 2px solid var(--black);
+      --pop-shadow: 4px 4px 0 var(--black);
+      --font-display: 'Fraunces', Georgia, serif;
+      --font-sans: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--paper); color: var(--black); font-family: var(--font-sans); line-height: 1.55; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+
+    /* Top strip + header */
+    .top-notice { background: var(--black); color: var(--paper); font-family: var(--font-mono); font-size: 0.76rem; padding: 0.55rem 1rem; text-align: center; letter-spacing: 0.06em; text-transform: uppercase; }
+    .top-notice strong { color: var(--eosine-pink); font-weight: 500; }
+    .site-header { position: sticky; top: 0; z-index: 40; background: var(--paper); border-bottom: var(--line); }
+    .nav-container { max-width: 1120px; margin: 0 auto; padding: 0.85rem 1.5rem; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; }
+    .brand { display: flex; align-items: center; gap: 0.7rem; text-decoration: none; color: var(--black); }
+    .brand-mark { width: 38px; height: 38px; border-radius: 50%; background: var(--eosine-pink); border: var(--line); display: grid; place-items: center; }
+    .brand-text { display: flex; flex-direction: column; }
+    .brand-name { font-family: var(--font-display); font-size: 1.2rem; font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; }
+    .brand-sub { font-family: var(--font-mono); font-size: 0.66rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--burnt-sienna); }
+    .nav-links { display: flex; gap: 1.75rem; list-style: none; }
+    .nav-links a { text-decoration: none; color: var(--black); font-weight: 500; font-size: 0.92rem; }
+    .nav-links a:hover { color: var(--diamine-green); text-decoration: underline; text-underline-offset: 4px; }
+
+    /* Buttons */
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; padding: 0.7rem 1.3rem; border: var(--line); border-radius: 999px; font-family: var(--font-sans); font-weight: 600; font-size: 0.92rem; text-decoration: none; cursor: pointer; box-shadow: var(--pop-shadow); transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease; }
+    .btn:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 var(--black); }
+    .btn:active { transform: translate(2px, 2px); box-shadow: 1px 1px 0 var(--black); }
+    .btn-primary { background: var(--diamine-green); color: var(--paper); }
+    .btn-outline { background: var(--paper); color: var(--black); }
+    .btn-outline:hover { background: var(--eosine-pink); }
+
+    /* Hero */
+    .hero-band { background: var(--eosine-pink); border-bottom: var(--line); }
+    .hero { max-width: 1120px; margin: 0 auto; padding: 4rem 1.5rem; display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 3rem; align-items: center; }
+    .eyebrow { font-family: var(--font-mono); font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--burnt-sienna); margin-bottom: 0.9rem; display: block; }
+    .hero .eyebrow { color: var(--black); }
+    .hero h1 { font-family: var(--font-display); font-size: clamp(2.6rem, 5vw, 4.2rem); font-weight: 700; line-height: 1.02; letter-spacing: -0.03em; margin-bottom: 1.2rem; }
+    .hero h1 em { font-style: italic; font-weight: 500; color: var(--paper); background: var(--black); padding: 0 0.22em 0.04em 0.14em; margin: 0 0.04em; border-radius: 0.12em; display: inline-block; transform: rotate(-3deg); box-shadow: 4px 4px 0 var(--diamine-green); }
+    .hero-lead { font-size: 1.12rem; max-width: 46ch; margin-bottom: 1.8rem; }
+    .hero-cta-group { display: flex; flex-wrap: wrap; gap: 0.9rem; margin-bottom: 2rem; }
+    .schedule-strip { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+    .schedule-pill { font-family: var(--font-mono); font-size: 0.76rem; background: var(--paper); border: var(--line); border-radius: 999px; padding: 0.35rem 0.8rem; }
+    .schedule-pill b { color: var(--diamine-green); font-weight: 500; }
+    .hero-visual { background: var(--paper); border: var(--line); border-radius: 16px; padding: 1.75rem; box-shadow: 8px 8px 0 var(--black); }
+    .hero-visual svg { display: block; width: 100%; height: auto; }
+
+    /* Hero illustration hover animations */
+    .hero-visual { transition: transform 0.2s ease, box-shadow 0.2s ease; }
+    .hero-visual:hover { transform: translate(-3px, -3px); box-shadow: 11px 11px 0 var(--black); }
+    .anim-plunger, .anim-drip, .anim-steam { transform-box: fill-box; }
+    .anim-drip, .anim-steam { opacity: 0; }
+    .hero-visual:hover .anim-plunger { animation: plunge 1.6s ease-in-out infinite; }
+    .hero-visual:hover .anim-drip { animation: drip 0.9s ease-in infinite; }
+    .hero-visual:hover .anim-drip.d2 { animation-delay: 0.45s; }
+    .hero-visual:hover .anim-steam { animation: steam 2s ease-out infinite; }
+    .hero-visual:hover .anim-steam.s2 { animation-delay: 0.7s; }
+    @keyframes plunge { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(22px); } }
+    @keyframes drip { 0% { opacity: 0; transform: translateY(-4px); } 20% { opacity: 1; } 100% { opacity: 0; transform: translateY(22px); } }
+    @keyframes steam { 0% { opacity: 0; transform: translateY(4px); } 30% { opacity: 0.8; } 100% { opacity: 0; transform: translateY(-14px); } }
+    @media (prefers-reduced-motion: reduce) { .hero-visual:hover * { animation: none !important; } }
+    .chip-row { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.25rem; justify-content: center; }
+    .chip { font-family: var(--font-mono); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.06em; padding: 0.3rem 0.65rem; border: var(--line); border-radius: 6px; background: var(--paper-dim); }
+
+    /* Sections */
+    .section { max-width: 1120px; margin: 0 auto; padding: 4.5rem 1.5rem; }
+    .section-header { margin-bottom: 2.25rem; }
+    .section-header h2 { font-family: var(--font-display); font-size: clamp(2rem, 3.4vw, 2.8rem); font-weight: 700; letter-spacing: -0.025em; line-height: 1.1; }
+    .section-header p { margin-top: 0.5rem; font-size: 1.02rem; }
+    .divider { border: none; border-top: var(--line); }
+
+    /* Bar cards */
+    .packages-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    .package-card { background: var(--paper); border: var(--line); border-radius: 16px; padding: 1.75rem; display: flex; flex-direction: column; justify-content: space-between; gap: 1.5rem; box-shadow: var(--pop-shadow); transition: transform 0.15s ease, box-shadow 0.15s ease; }
+    .package-card:hover { transform: translate(-3px, -3px); box-shadow: 7px 7px 0 var(--black); }
+    .package-card.featured { background: var(--black); color: var(--paper); }
+    .package-card.featured .package-tag { color: var(--eosine-pink); }
+    .package-card.featured .package-features li::before { color: var(--eosine-pink); }
+    .package-tag { font-family: var(--font-mono); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--burnt-sienna); display: block; margin-bottom: 0.4rem; }
+    .package-title { font-family: var(--font-display); font-size: 1.6rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 0.3rem; }
+    .package-blurb { font-size: 0.95rem; opacity: 0.85; }
+    .package-features { list-style: none; margin-top: 1rem; font-size: 0.92rem; }
+    .package-features li { padding: 0.3rem 0; }
+    .package-features li::before { content: "● "; color: var(--diamine-green); font-size: 0.7rem; vertical-align: 2px; }
+
+    .menu-banner { margin-top: 2.25rem; background: var(--diamine-green); color: var(--paper); border: var(--line); border-radius: 16px; padding: 1.4rem 1.75rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; box-shadow: var(--pop-shadow); }
+    .menu-banner strong { font-family: var(--font-display); font-size: 1.25rem; }
+
+    /* Booking */
+    .booking-grid { display: grid; grid-template-columns: 1.25fr 0.75fr; gap: 2.5rem; align-items: start; }
+    .form-card { background: var(--paper); border: var(--line); border-radius: 16px; padding: 2rem; box-shadow: 8px 8px 0 var(--black); }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+    .form-group { display: flex; flex-direction: column; margin-bottom: 1rem; }
+    .form-row .form-group { margin-bottom: 0; }
+    .form-group label { font-size: 0.8rem; font-weight: 600; margin-bottom: 0.35rem; text-transform: uppercase; letter-spacing: 0.05em; }
+    .form-group input, .form-group select, .form-group textarea { padding: 0.7rem 0.85rem; border: var(--line); border-radius: 8px; background: #fff; font-family: var(--font-sans); font-size: 0.95rem; color: var(--black); }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; box-shadow: 3px 3px 0 var(--eosine-pink); }
+    .extras-dropdown { position: relative; }
+    .extras-dropdown summary { list-style: none; cursor: pointer; padding: 0.7rem 2.2rem 0.7rem 0.85rem; border: var(--line); border-radius: 8px; background: #fff; font-size: 0.95rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; position: relative; user-select: none; }
+    .extras-dropdown summary::-webkit-details-marker { display: none; }
+    .extras-dropdown summary::after { content: "▾"; position: absolute; right: 0.85rem; top: 50%; transform: translateY(-50%); transition: transform 0.15s ease; }
+    .extras-dropdown[open] summary { box-shadow: 3px 3px 0 var(--eosine-pink); }
+    .extras-dropdown[open] summary::after { transform: translateY(-50%) rotate(180deg); }
+    .extras-dropdown summary.has-picks { font-weight: 600; }
+    .extras-menu { position: absolute; z-index: 20; left: 0; right: 0; top: calc(100% + 6px); max-height: 240px; overflow-y: auto; background: var(--paper); border: var(--line); border-radius: 10px; box-shadow: var(--pop-shadow); padding: 0.35rem; }
+    .extra-option { display: flex; align-items: center; gap: 0.6rem; padding: 0.5rem 0.6rem; border-radius: 6px; font-size: 0.92rem; cursor: pointer; text-transform: none !important; letter-spacing: 0 !important; font-weight: 500 !important; margin-bottom: 0 !important; }
+    .extra-option:hover { background: var(--paper-dim); }
+    .extra-option input { accent-color: var(--diamine-green); width: 16px; height: 16px; padding: 0; border: none; box-shadow: none !important; flex-shrink: 0; }
+    .extra-option:has(input:checked) { background: var(--eosine-pink); }
+
+    /* Submit button: "coffee pour" fill on hover + pouring-kettle cursor (set via JS below) */
+    #btn-submit-lead {
+      width: 100%; padding: 0.95rem 1.5rem; font-size: 1rem; margin-top: 0.5rem;
+      background: linear-gradient(to bottom, var(--burnt-sienna) 50%, var(--diamine-green) 50%);
+      background-size: 100% 200%; background-position: bottom;
+      transition: background-position 0.45s ease, transform 0.15s ease, box-shadow 0.15s ease;
+      cursor: var(--pour-cursor, pointer);
+    }
+    #btn-submit-lead:hover { background-position: top; }
+
+    .info-sidebar-box { background: var(--eosine-pink); border: var(--line); border-radius: 16px; padding: 1.75rem; position: sticky; top: 5.5rem; box-shadow: var(--pop-shadow); }
+    .info-sidebar-box h3 { font-family: var(--font-display); font-size: 1.5rem; margin-bottom: 0.75rem; }
+    .info-sidebar-box .eyebrow { color: var(--black); margin-bottom: 0.3rem; }
+    .process-steps { list-style: none; }
+    .process-steps li { padding: 0.7rem 0; border-top: 2px dashed var(--black); font-size: 0.92rem; }
+    .process-steps li strong { display: block; font-size: 1rem; }
+    .fine-print { font-family: var(--font-mono); font-size: 0.72rem; margin-top: 1rem; text-transform: uppercase; }
+
+    /* Footer */
+    .site-footer-wrap { background: var(--black); color: var(--paper); }
+    .site-footer { max-width: 1120px; margin: 0 auto; padding: 2.25rem 1.5rem 5rem; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1.25rem; font-size: 0.86rem; }
+    .footer-links { display: flex; gap: 1.25rem; flex-wrap: wrap; }
+    .footer-links a { color: var(--eosine-pink); text-decoration: underline; cursor: pointer; }
+
+    /* GTM practice drawer */
+    .gtm-lab-toggle { position: fixed; bottom: 1.25rem; right: 1.25rem; z-index: 99; background: var(--black); color: var(--paper); border: 2px solid var(--paper); border-radius: 999px; padding: 0.6rem 1rem; font-family: var(--font-mono); font-size: 0.76rem; cursor: pointer; box-shadow: 0 10px 25px rgba(0,0,0,0.25); display: flex; align-items: center; gap: 0.5rem; }
+    .gtm-lab-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--eosine-pink); }
+    .gtm-lab-drawer { position: fixed; bottom: 4.25rem; right: 1.25rem; width: min(460px, calc(100vw - 2.5rem)); max-height: 78vh; overflow-y: auto; z-index: 99; background: var(--black); color: var(--paper); border: 2px solid var(--paper); border-radius: 12px; padding: 1.25rem; font-family: var(--font-mono); font-size: 0.76rem; box-shadow: 0 20px 50px rgba(0,0,0,0.4); display: none; }
+    .gtm-lab-drawer.open { display: block; }
+    .gtm-lab-drawer h4 { font-size: 0.85rem; margin-bottom: 0.5rem; color: var(--eosine-pink); }
+    .gtm-lab-btn { background: var(--diamine-green); color: var(--paper); border: none; padding: 0.45rem 0.75rem; border-radius: 4px; font-family: var(--font-mono); font-size: 0.74rem; cursor: pointer; }
+    .gtm-lab-log { background: #08090a; border: 1px solid #2a2d2f; border-radius: 6px; padding: 0.75rem; margin-top: 0.75rem; max-height: 210px; overflow-y: auto; white-space: pre-wrap; word-break: break-word; color: #9be3b8; }
+
+    @media (max-width: 900px) {
+      .hero, .packages-grid, .booking-grid { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+      .form-row { grid-template-columns: 1fr; }
+      .info-sidebar-box { position: static; }
+    }
+  </style>
+</head>
+<body>
+  <!-- 3. GOOGLE TAG MANAGER (<body> noscript snippet — Container ID: GTM-PRMMQVHL) -->
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PRMMQVHL"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <div class="top-notice">
+    <strong>Weekends only</strong> &bull; Mountain View, Los Altos &amp; Sunnyvale
+  </div>
+
+  <header class="site-header">
+    <nav class="nav-container" aria-label="Main Navigation">
+      <a href="index.html" class="brand" id="nav-brand-logo">
+        <span class="brand-mark" aria-hidden="true">
+          <!-- V60 dripper mark -->
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#111314" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
+            <path d="M4 6h16l-5 9H9Z" />
+            <path d="M7 18h10" />
+            <path d="M12 15v3" />
+          </svg>
+        </span>
+        <span class="brand-text">
+          <span class="brand-name">Pourin' with Loren</span>
+          <span class="brand-sub">V60 &amp; Aeropress Bar</span>
+        </span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#experiences" id="nav-link-experiences">The Bars</a></li>
+        <li><a href="#weekend-hours" id="nav-link-hours">Hours</a></li>
+        <li><a href="#inquiry-section" id="nav-link-inquire">Book</a></li>
+      </ul>
+
+      <a href="#inquiry-section" class="btn btn-primary" id="btn-header-book" onclick="pushCtaClick('header_inquire')">
+        Book a Date
+      </a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="hero-band">
+      <section class="hero">
+        <div>
+          <span class="eyebrow">Mountain View &bull; Pop-up coffee bar</span>
+          <h1>Slow coffee, <em>poured</em> at your place.</h1>
+          <p class="hero-lead">
+            V60 pour-overs and Aeropress, brewed to order with rare single-origin beans. Made for coffee nerds and their friends.
+          </p>
+          <div class="hero-cta-group">
+            <a href="#inquiry-section" class="btn btn-primary" id="btn-hero-inquire" onclick="pushCtaClick('hero_primary_inquire')">
+              Check My Date
+            </a>
+            <button type="button" class="btn btn-outline" id="btn-download-menu" onclick="pushMenuDownload()">
+              Bean List (PDF)
+            </button>
+          </div>
+
+          <div class="schedule-strip" id="weekend-hours">
+            <span class="schedule-pill"><b>FRI</b> 12–9 PM</span>
+            <span class="schedule-pill"><b>SAT</b> 8 AM–9 PM</span>
+            <span class="schedule-pill"><b>SUN</b> 8 AM–6 PM</span>
+          </div>
+        </div>
+
+        <aside class="hero-visual" aria-label="V60 and Aeropress illustration">
+          <svg viewBox="0 0 240 180" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A V60 dripper over a glass server next to an Aeropress over a mug">
+            <!-- Steam off the V60 bloom (hover only) -->
+            <path class="anim-steam" d="M60 40 Q56 34 60 28 Q64 22 60 16" stroke="#111314" stroke-width="2.5" stroke-linecap="round" fill="none" />
+            <path class="anim-steam s2" d="M80 40 Q76 34 80 28 Q84 22 80 16" stroke="#111314" stroke-width="2.5" stroke-linecap="round" fill="none" />
+            <!-- V60 dripper -->
+            <path d="M34 46 H106 L84 96 H56 Z" fill="#f37f94" stroke="#111314" stroke-width="3" stroke-linejoin="round" />
+            <path d="M52 56 L64 92 M70 56 L70 92 M88 56 L76 92" stroke="#111314" stroke-width="1.5" opacity="0.45" />
+            <path d="M106 54 Q118 56 116 68 Q114 78 100 76" stroke="#111314" stroke-width="3" fill="none" />
+            <rect x="46" y="96" width="48" height="7" rx="2" fill="#111314" />
+            <!-- Glass server -->
+            <path d="M48 112 H92 L98 152 Q98 164 86 164 H54 Q42 164 42 152 Z" fill="#f7f2ea" stroke="#111314" stroke-width="3" stroke-linejoin="round" />
+            <path d="M44.5 136 H95.5 L98 152 Q98 164 86 164 H54 Q42 164 42 152 Z" fill="#ae5224" />
+            <path d="M48 112 H92 L98 152 Q98 164 86 164 H54 Q42 164 42 152 Z" stroke="#111314" stroke-width="3" stroke-linejoin="round" fill="none" />
+            <!-- Drips falling into the server (hover only) -->
+            <ellipse class="anim-drip" cx="70" cy="109" rx="2.2" ry="3.2" fill="#ae5224" />
+            <ellipse class="anim-drip d2" cx="70" cy="109" rx="2.2" ry="3.2" fill="#ae5224" />
+            <!-- Aeropress plunger (drawn first so it slides behind the chamber) -->
+            <g class="anim-plunger">
+              <rect x="140" y="30" width="48" height="8" rx="2" fill="#111314" />
+              <rect x="147" y="38" width="34" height="26" fill="#f7f2ea" stroke="#111314" stroke-width="3" />
+            </g>
+            <!-- Aeropress chamber -->
+            <rect x="142" y="60" width="44" height="72" rx="4" fill="#1a7444" stroke="#111314" stroke-width="3" />
+            <path d="M150 78 H160 M150 92 H160 M150 106 H160" stroke="#f7f2ea" stroke-width="2" stroke-linecap="round" />
+            <rect x="137" y="132" width="54" height="8" rx="2" fill="#111314" />
+            <!-- Mug -->
+            <path d="M142 142 H186 V158 Q186 166 178 166 H150 Q142 166 142 158 Z" fill="#ae5224" stroke="#111314" stroke-width="3" stroke-linejoin="round" />
+            <path d="M186 146 Q198 146 198 154 Q198 162 186 160" stroke="#111314" stroke-width="3" fill="none" />
+            <!-- Table -->
+            <rect x="16" y="168" width="208" height="5" rx="2.5" fill="#111314" />
+          </svg>
+          <div class="chip-row">
+            <span class="chip">Brewed to order</span>
+            <span class="chip">4–35 guests</span>
+            <span class="chip">Just add a table</span>
+          </div>
+        </aside>
+      </section>
+    </div>
+
+    <section class="section" id="experiences">
+      <div class="section-header">
+        <span class="eyebrow">Pick your bar</span>
+        <h2>Three ways to pour.</h2>
+      </div>
+
+      <div class="packages-grid">
+        <article class="package-card">
+          <div>
+            <span class="package-tag">Classic</span>
+            <h3 class="package-title">The V60 Bar</h3>
+            <p class="package-blurb">Hand-poured cups, one at a time.</p>
+            <ul class="package-features">
+              <li>2 rotating single origins</li>
+              <li>Light &amp; medium roasts</li>
+              <li>Brewed to order</li>
+            </ul>
+          </div>
+          <button type="button" class="btn btn-outline" id="btn-exp-v60-bar" onclick="selectExperience('v60_bar', 'saturday_daytime')">
+            Book the V60 Bar
+          </button>
+        </article>
+
+        <article class="package-card featured">
+          <div>
+            <span class="package-tag">Most booked</span>
+            <h3 class="package-title">The Aeropress Lab</h3>
+            <p class="package-blurb">Fast, punchy and fun to watch.</p>
+            <ul class="package-features">
+              <li>Inverted &amp; classic recipes</li>
+              <li>Iced Aeropress on request</li>
+              <li>Great for bigger groups</li>
+            </ul>
+          </div>
+          <button type="button" class="btn btn-primary" id="btn-exp-aeropress-lab" onclick="selectExperience('aeropress_lab', 'friday_afternoon')">
+            Book the Aeropress Lab
+          </button>
+        </article>
+
+        <article class="package-card">
+          <div>
+            <span class="package-tag">For the nerds</span>
+            <h3 class="package-title">The Tasting Flight</h3>
+            <p class="package-blurb">Side-by-side cups, both brewers.</p>
+            <ul class="package-features">
+              <li>Geisha &amp; rare micro-lots</li>
+              <li>Tasting note cards</li>
+              <li>Mini brew-along</li>
+            </ul>
+          </div>
+          <button type="button" class="btn btn-outline" id="btn-exp-tasting-flight" onclick="selectExperience('tasting_flight', 'sunday_daytime')">
+            Book a Tasting Flight
+          </button>
+        </article>
+      </div>
+
+      <div class="menu-banner">
+        <strong>What's in the hopper this month?</strong>
+        <button type="button" class="btn btn-outline" id="btn-banner-menu-download" onclick="pushMenuDownload()">
+          Get the Bean List
+        </button>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <section class="section" id="inquiry-section">
+      <div class="section-header">
+        <span class="eyebrow">Book</span>
+        <h2>Grab a weekend date.</h2>
+        <p>We reply within 24 hours.</p>
+      </div>
+
+      <div class="booking-grid">
+        <div class="form-card">
+          <form id="lead-booking-form" action="https://formspree.io/f/mljgngpb" method="POST" onsubmit="handleLeadSubmit(event)">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="first_name">First Name *</label>
+                <input type="text" id="first_name" name="first_name" required placeholder="Alex" autocomplete="given-name" />
+              </div>
+              <div class="form-group">
+                <label for="last_name">Last Name *</label>
+                <input type="text" id="last_name" name="last_name" required placeholder="Rivera" autocomplete="family-name" />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="user_email">Email *</label>
+                <input type="email" id="user_email" name="email" required placeholder="alex@example.com" autocomplete="email" />
+              </div>
+              <div class="form-group">
+                <label for="user_phone">Phone *</label>
+                <input type="tel" id="user_phone" name="user_phone" required placeholder="(650) 555-0199" autocomplete="tel" />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="event_type">Which Bar? *</label>
+                <select id="event_type" name="event_type">
+                  <option value="v60_bar">The V60 Bar</option>
+                  <option value="aeropress_lab">The Aeropress Lab</option>
+                  <option value="tasting_flight">The Tasting Flight</option>
+                  <option value="not_sure">Not sure yet</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="preferred_slot">When? *</label>
+                <select id="preferred_slot" name="preferred_slot">
+                  <option value="friday_afternoon">Fri afternoon (12–5 PM)</option>
+                  <option value="friday_evening">Fri evening (5–9 PM)</option>
+                  <option value="saturday_daytime" selected>Sat daytime (8 AM–4 PM)</option>
+                  <option value="saturday_evening">Sat evening (4–9 PM)</option>
+                  <option value="sunday_daytime">Sun daytime (8 AM–6 PM)</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="guest_tier">Guests *</label>
+                <select id="guest_tier" name="guest_tier">
+                  <option value="4-10">4 – 10</option>
+                  <option value="10-20" selected>10 – 20</option>
+                  <option value="20-35">20 – 35</option>
+                  <option value="35+">35+</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="postal_code">ZIP Code *</label>
+                <input type="text" id="postal_code" name="postal_code" required value="94041" pattern="[0-9]{5}" placeholder="94041" />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Extras (Optional)</label>
+              <details class="extras-dropdown" id="extras-dropdown">
+                <summary id="extras-summary">Add extras&hellip;</summary>
+                <div class="extras-menu">
+                  <label class="extra-option"><input type="checkbox" name="interest" value="pastry_pairing" /><span>Local pastry pairing</span></label>
+                  <label class="extra-option"><input type="checkbox" name="interest" value="geisha_upgrade" /><span>Geisha upgrade</span></label>
+                  <label class="extra-option"><input type="checkbox" name="interest" value="take_home_beans" /><span>Take-home beans</span></label>
+                  <label class="extra-option"><input type="checkbox" name="interest" value="brew_lesson" /><span>Mini brew lesson</span></label>
+                  <label class="extra-option"><input type="checkbox" name="interest" value="iced_pour_over" /><span>Iced pour-over / flash brew</span></label>
+                  <label class="extra-option"><input type="checkbox" name="interest" value="milk_bar" /><span>Milk bar (oat &amp; whole)</span></label>
+                  <label class="extra-option"><input type="checkbox" name="interest" value="tasting_cards" /><span>Origin tasting cards</span></label>
+                  <label class="extra-option"><input type="checkbox" name="interest" value="grinder_demo" /><span>Hand grinder demo</span></label>
+                  <label class="extra-option"><input type="checkbox" name="interest" value="custom_roaster" /><span>Pick your roaster</span></label>
+                  <label class="extra-option"><input type="checkbox" name="interest" value="custom_cups" /><span>Custom cups &amp; sleeves</span></label>
+                  <label class="extra-option"><input type="checkbox" name="interest" value="extra_hour" /><span>Extra hour of service</span></label>
+                </div>
+              </details>
+            </div>
+
+            <div class="form-group">
+              <label for="event_notes">Anything Else? (Optional)</label>
+              <textarea id="event_notes" name="event_notes" rows="2" placeholder="Date, neighborhood, coffee-nerd level..."></textarea>
+            </div>
+
+            <!-- Formspree helpers -->
+            <input type="hidden" name="_subject" value="New booking inquiry — Pourin' with Loren" />
+            <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none" aria-hidden="true" />
+
+            <p id="form-error" role="alert" style="display:none; margin-bottom: 0.75rem; padding: 0.6rem 0.8rem; border: 2px solid var(--black); border-radius: 8px; background: var(--eosine-pink); font-weight: 600; font-size: 0.9rem;"></p>
+
+            <button type="submit" class="btn btn-primary" id="btn-submit-lead">
+              Send Inquiry &amp; Request Availability
+            </button>
+          </form>
+        </div>
+
+        <aside class="info-sidebar-box" aria-label="How Booking Works">
+          <span class="eyebrow">How it works</span>
+          <h3>Three easy steps.</h3>
+          <ul class="process-steps">
+            <li><strong>1. We check the date</strong>Same day.</li>
+            <li><strong>2. You get a quote</strong>Based on guests &amp; bar.</li>
+            <li><strong>3. We pour</strong>We arrive 30 min early. You supply one table.</li>
+          </ul>
+          <p class="fine-print">No travel fee in MV, Los Altos &amp; Sunnyvale.</p>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <div class="site-footer-wrap">
+    <footer class="site-footer">
+      <div>
+        <strong>Pourin' with Loren</strong> &mdash; V60 &amp; Aeropress pop-up, Mountain View, CA
+      </div>
+      <div class="footer-links">
+        <a onclick="alert('Privacy Policy: Pourin\' with Loren collects contact information solely to respond to event inquiries and measure advertising effectiveness via first-party cookies and Google Tag Manager.')">Privacy</a>
+        <a onclick="alert('Terms of Service: Bookings are confirmed upon date reservation for Friday afternoon through Sunday events.')">Terms</a>
+      </div>
+    </footer>
+  </div>
+
+  <button type="button" class="gtm-lab-toggle" id="btn-toggle-gtm-lab" onclick="toggleGtmLab()">
+    <span class="gtm-lab-dot"></span>
+    <span>GTM &amp; dataLayer Lab</span>
+  </button>
+
+  <aside class="gtm-lab-drawer" id="gtm-lab-drawer" aria-label="Google Tag Manager Practice Helper">
+    <h4>GTM / GA4 / Ads / Floodlight Lab</h4>
+    <p style="color: #cbd5e1; margin-bottom: 0.5rem;">
+      Active Container: <strong id="lab-active-gtm-id" style="color: #fff;">GTM-PRMMQVHL</strong>
+    </p>
+    <div style="display: flex; gap: 0.4rem; flex-wrap: wrap; margin-top: 0.5rem;">
+      <button type="button" class="gtm-lab-btn" onclick="simulateAdClickGclid()">
+        Simulate ?gclid= Ad Click
+      </button>
+      <button type="button" class="gtm-lab-btn" onclick="fireTestFloodlightEvent()">
+        Fire Test Floodlight Event
+      </button>
+    </div>
+    <div class="gtm-lab-log" id="gtm-lab-log">Waiting for dataLayer events...</div>
+  </aside>
+
+  <script>
+    // ---- Pouring-kettle cursor for the submit button ----
+    // Built as an SVG string and encoded into a data URL so it's easy to tweak.
+    // Hotspot (6, 44) = the tip of the coffee stream.
+    (function setPourCursor() {
+      var svg =
+        "<svg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 48 48'>" +
+          "<path d='M7.7 26.5 Q5 35 6 43' fill='none' stroke='#f7f2ea' stroke-width='4' stroke-linecap='round'/>" +
+          "<path d='M7.7 26.5 Q5 35 6 43' fill='none' stroke='#ae5224' stroke-width='2' stroke-linecap='round'/>" +
+          "<circle cx='6' cy='46' r='1.6' fill='#ae5224' stroke='#f7f2ea' stroke-width='0.8'/>" +
+          "<g transform='rotate(-25 28 20)' stroke-linejoin='round' stroke-linecap='round'>" +
+            "<path d='M21 27 Q14 28 12 22 Q11 18 7 17' fill='none' stroke='#f7f2ea' stroke-width='4.5'/>" +
+            "<path d='M21 27 Q14 28 12 22 Q11 18 7 17' fill='none' stroke='#111314' stroke-width='2.2'/>" +
+            "<path d='M38 17 Q45 18 44 24 Q43 28 39 28' fill='none' stroke='#f7f2ea' stroke-width='4.5'/>" +
+            "<path d='M38 17 Q45 18 44 24 Q43 28 39 28' fill='none' stroke='#111314' stroke-width='2.2'/>" +
+            "<path d='M20 30 L22 16 Q22 14 24 14 L36 14 Q38 14 38 16 L40 30 Z' fill='#111314' stroke='#f7f2ea' stroke-width='1.5'/>" +
+            "<rect x='22.5' y='20' width='15' height='3' fill='#1a7444'/>" +
+            "<path d='M25 14 L27 11 L33 11 L35 14 Z' fill='#f37f94' stroke='#f7f2ea' stroke-width='1.2'/>" +
+            "<circle cx='30' cy='9.5' r='1.6' fill='#f37f94'/>" +
+          "</g>" +
+        "</svg>";
+      document.documentElement.style.setProperty(
+        '--pour-cursor',
+        'url("data:image/svg+xml,' + encodeURIComponent(svg) + '") 6 44, pointer'
+      );
+    })();
+
+    // ---- Extras dropdown ----
+    function updateExtrasSummary() {
+      var picked = Array.prototype.map.call(
+        document.querySelectorAll('#extras-dropdown input:checked'),
+        function(cb) { return cb.nextElementSibling.textContent; }
+      );
+      var summary = document.getElementById('extras-summary');
+      if (picked.length === 0) summary.textContent = 'Add extras\u2026';
+      else if (picked.length <= 2) summary.textContent = picked.join(', ');
+      else summary.textContent = picked[0] + ' + ' + (picked.length - 1) + ' more';
+      summary.classList.toggle('has-picks', picked.length > 0);
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      var dropdown = document.getElementById('extras-dropdown');
+      dropdown.addEventListener('change', function(e) {
+        if (e.target.name !== 'interest') return;
+        updateExtrasSummary();
+        logToLab({ event: 'select_extra', extra_value: e.target.value, extra_checked: e.target.checked });
+      });
+      // Close when clicking anywhere outside the dropdown
+      document.addEventListener('click', function(e) {
+        if (dropdown.open && !dropdown.contains(e.target)) dropdown.open = false;
+      });
+    });
+
+    function logToLab(payload) {
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push(payload);
+      var logEl = document.getElementById('gtm-lab-log');
+      if (logEl) {
+        var timestamp = new Date().toLocaleTimeString();
+        logEl.textContent = '[' + timestamp + '] dataLayer.push:\n' + JSON.stringify(payload, null, 2) + '\n\n' + logEl.textContent;
+      }
+    }
+
+    function selectExperience(eventType, slot) {
+      document.getElementById('event_type').value = eventType;
+      document.getElementById('preferred_slot').value = slot;
+      logToLab({ event: 'select_experience', experience_type: eventType, recommended_slot: slot });
+      document.getElementById('inquiry-section').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function pushCtaClick(ctaLocation) {
+      logToLab({ event: 'cta_click', cta_location: ctaLocation, service_city: 'Mountain View' });
+    }
+
+    function pushMenuDownload() {
+      logToLab({
+        event: 'file_download',
+        file_name: 'pourin-with-loren-bean-list.pdf',
+        file_extension: 'pdf',
+        link_text: 'Bean List'
+      });
+      alert('Bean list download simulated! An event ("file_download") was just pushed to window.dataLayer so you can trigger a GA4 or Google Ads micro-conversion tag.');
+    }
+
+    function formatE164Phone(rawPhone) {
+      var digits = (rawPhone || '').replace(/\D/g, '');
+      if (digits.length === 10) return '+1' + digits;
+      if (digits.length === 11 && digits.charAt(0) === '1') return '+' + digits;
+      return '+' + digits;
+    }
+
+    function handleLeadSubmit(e) {
+      e.preventDefault();
+      var leadId = 'MVB-' + Math.floor(100000 + Math.random() * 900000);
+      var firstName = document.getElementById('first_name').value.trim();
+      var lastName = document.getElementById('last_name').value.trim();
+      var email = document.getElementById('user_email').value.trim().toLowerCase();
+      var phone = formatE164Phone(document.getElementById('user_phone').value);
+      var zip = document.getElementById('postal_code').value.trim();
+      var eventType = document.getElementById('event_type').value;
+      var preferredSlot = document.getElementById('preferred_slot').value;
+      var guestTier = document.getElementById('guest_tier').value;
+
+      var selectedInterests = [];
+      document.querySelectorAll('input[name="interest"]:checked').forEach(function(cb) {
+        selectedInterests.push(cb.value);
+      });
+
+      var leadPayload = {
+        event: 'generate_lead',
+        lead_id: leadId,
+        lead_type: eventType,
+        preferred_slot: preferredSlot,
+        guest_tier: guestTier,
+        menu_interests: selectedInterests.join(',') || 'standard_pour_over',
+        floodlight_ord: leadId,
+        u1_event_type: eventType,
+        u2_day_slot: preferredSlot,
+        u3_zip: zip,
+        user_data: {
+          email: email,
+          phone_number: phone,
+          address: {
+            first_name: firstName,
+            last_name: lastName,
+            city: 'Mountain View',
+            region: 'CA',
+            postal_code: zip,
+            country: 'US'
+          }
+        }
+      };
+
+      var form = document.getElementById('lead-booking-form');
+      var submitBtn = document.getElementById('btn-submit-lead');
+      var errorEl = document.getElementById('form-error');
+      var originalBtnText = submitBtn.innerHTML;
+      errorEl.style.display = 'none';
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = 'Pouring your request&hellip;';
+
+      // Send everything in the form, plus the lead ID so the email matches your GA4 data.
+      var formData = new FormData(form);
+      formData.append('lead_id', leadId);
+      // Combine checked extras into one readable line for the email
+      var extrasLabels = Array.prototype.map.call(
+        document.querySelectorAll('#extras-dropdown input:checked'),
+        function(cb) { return cb.nextElementSibling.textContent; }
+      );
+      formData.delete('interest');
+      formData.append('extras', extrasLabels.join(', ') || 'None');
+
+      fetch(form.action, {
+        method: 'POST',
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+      })
+        .then(function(response) {
+          if (!response.ok) {
+            return response.json().catch(function() { return {}; }).then(function(data) {
+              var msg = (data.errors && data.errors.map(function(er) { return er.message; }).join(', ')) || ('HTTP ' + response.status);
+              throw new Error(msg);
+            });
+          }
+
+          // ✅ Formspree confirmed receipt — NOW it's a real conversion.
+          logToLab(leadPayload);
+
+          try {
+            sessionStorage.setItem('mv_barista_last_lead', JSON.stringify({
+              lead_id: leadId,
+              first_name: firstName,
+              event_type: eventType,
+              preferred_slot: preferredSlot,
+              guest_tier: guestTier,
+              postal_code: zip,
+              user_data: leadPayload.user_data
+            }));
+          } catch (err) {}
+
+          setTimeout(function() {
+            var query = '?lead_id=' + encodeURIComponent(leadId) +
+                        '&name=' + encodeURIComponent(firstName) +
+                        '&event_type=' + encodeURIComponent(eventType) +
+                        '&slot=' + encodeURIComponent(preferredSlot) +
+                        '&guests=' + encodeURIComponent(guestTier) +
+                        '&zip=' + encodeURIComponent(zip);
+            window.location.href = 'thank-you.html' + query;
+          }, 250);
+        })
+        .catch(function(err) {
+          // ❌ Submission failed — track it so you can monitor form errors in GA4.
+          logToLab({ event: 'form_submit_error', form_id: 'lead-booking-form', error_message: String(err.message || err).slice(0, 100) });
+          errorEl.textContent = 'Hmm, that didn\'t go through. Please try again in a moment.';
+          errorEl.style.display = 'block';
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = originalBtnText;
+        });
+    }
+
+    function toggleGtmLab() {
+      document.getElementById('gtm-lab-drawer').classList.toggle('open');
+    }
+
+    function simulateAdClickGclid() {
+      var mockGclid = 'TeStGcLiD_MVBarista_' + Math.floor(1000 + Math.random() * 9000);
+      window.location.href = window.location.pathname + '?gclid=' + mockGclid + '&utm_source=google&utm_medium=cpc&utm_campaign=dad_mv_weekend_barista';
+    }
+
+    function fireTestFloodlightEvent() {
+      var testOrd = 'FL-LEAD-' + Math.floor(10000 + Math.random() * 90000);
+      logToLab({
+        event: 'floodlight_custom_test',
+        floodlight_ord: testOrd,
+        u1_event_type: document.getElementById('event_type').value,
+        u2_day_slot: document.getElementById('preferred_slot').value,
+        u3_zip: document.getElementById('postal_code').value || '94041'
+      });
+    }
+
+    window.addEventListener('DOMContentLoaded', function() {
+      logToLab({
+        event: 'barista_page_ready',
+        active_gtm_container: 'GTM-PRMMQVHL',
+        url_query: window.location.search || 'none'
+      });
+    });
+  </script>
+</body>
+</html>

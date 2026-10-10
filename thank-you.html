@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thank You — We'll Reach Out Soon | Pourin' with Loren Mountain View</title>
+  <meta name="description" content="Thank you for inquiring with Pourin' with Loren. Our Mountain View lead barista will reach out within 24 hours." />
+
+  <!-- 1. INITIALIZE DATA LAYER ON THANK-YOU PAGE LOAD -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    (function() {
+      var params = new URLSearchParams(window.location.search);
+      var stored = null;
+      try {
+        var raw = sessionStorage.getItem('mv_barista_last_lead');
+        if (raw) stored = JSON.parse(raw);
+      } catch (e) {}
+
+      var leadId = params.get('lead_id') || (stored && stored.lead_id) || ('MVB-' + Math.floor(100000 + Math.random() * 900000));
+      var firstName = params.get('name') || (stored && stored.first_name) || 'Friend';
+      var eventType = params.get('event_type') || (stored && stored.event_type) || 'v60_bar';
+      var slot = params.get('slot') || (stored && stored.preferred_slot) || 'saturday_daytime';
+      var guests = params.get('guests') || (stored && stored.guest_tier) || '10-20';
+      var zip = params.get('zip') || (stored && stored.postal_code) || '94041';
+
+      window.__LEAD_CONFIRMATION__ = { leadId: leadId, firstName: firstName, eventType: eventType, slot: slot, guests: guests, zip: zip };
+
+      var payload = {
+        event: 'generate_lead',
+        page_type: 'thank_you_page',
+        lead_id: leadId,
+        lead_type: eventType,
+        preferred_slot: slot,
+        guest_tier: guests,
+        floodlight_ord: leadId,
+        u1_event_type: eventType,
+        u2_day_slot: slot,
+        u3_zip: zip
+      };
+
+      if (stored && stored.user_data) {
+        payload.user_data = stored.user_data;
+      }
+
+      window.dataLayer.push(payload);
+    })();
+  </script>
+
+  <!-- 2. GOOGLE TAG MANAGER (<head> snippet — Container ID: GTM-PRMMQVHL) -->
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w.__ACTIVE_GTM_ID__=i;w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-PRMMQVHL');</script>
+  <!-- End Google Tag Manager -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* Palette: Sanzo Wada, "A Dictionary of Color Combinations" — #242
+       Eosine Pink #f37f94 · Diamine Green #1a7444 · Burnt Sienna #ae5224 · Black #111314 */
+    :root {
+      --bg-oat: #f7f2ea;
+      --bg-parchment: #f37f94;
+      --bg-card: #f7f2ea;
+      --ink-espresso: #111314;
+      --ink-roast: #111314;
+      --ink-muted: #ae5224;
+      --accent-crema: #1a7444;
+      --accent-crema-hover: #ae5224;
+      --accent-sage: #1a7444;
+      --border-hairline: #111314;
+      --border-strong: #111314;
+      --shadow-warm: 8px 8px 0 #111314;
+      --font-display: 'Fraunces', Georgia, serif;
+      --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { min-height: 100vh; display: flex; flex-direction: column; background-color: var(--bg-oat); background-image: radial-gradient(hsla(20, 30%, 20%, 0.035) 1px, transparent 0); background-size: 24px 24px; color: var(--ink-espresso); font-family: var(--font-sans); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    .top-notice { background-color: var(--ink-espresso); color: var(--bg-oat); font-size: 0.82rem; padding: 0.6rem 1.25rem; text-align: center; letter-spacing: 0.02em; }
+    .top-notice strong { color: hsl(28, 80%, 72%); font-weight: 600; }
+    .site-header { background: hsla(34, 42%, 96%, 0.92); border-bottom: 1px solid var(--border-hairline); }
+    .nav-container { max-width: 1180px; margin: 0 auto; padding: 1rem 1.5rem; display: flex; align-items: center; justify-content: space-between; }
+    .brand { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; color: var(--ink-espresso); }
+    .brand-mark { width: 38px; height: 38px; border-radius: 50%; background: var(--ink-espresso); color: var(--bg-oat); display: grid; place-items: center; }
+    .brand-text { display: flex; flex-direction: column; }
+    .brand-name { font-family: var(--font-display); font-size: 1.25rem; font-weight: 600; letter-spacing: -0.02em; line-height: 1.1; }
+    .brand-sub { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-muted); }
+    main { flex: 1; max-width: 780px; width: 100%; margin: 0 auto; padding: 4rem 1.5rem; }
+    .confirmation-card { background: var(--bg-card); border: 1px solid var(--border-strong); border-radius: 12px; padding: 3rem 2.75rem; box-shadow: var(--shadow-warm); }
+    .status-badge { display: inline-flex; align-items: center; gap: 0.5rem; font-family: var(--font-mono); font-size: 0.76rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent-sage); margin-bottom: 1rem; }
+    h1 { font-family: var(--font-display); font-size: clamp(2rem, 3.5vw, 2.75rem); font-weight: 600; line-height: 1.12; letter-spacing: -0.02em; margin-bottom: 1rem; }
+    h1 em { font-style: italic; font-weight: 400; color: var(--accent-crema); }
+    .lead-message { font-size: 1.06rem; color: var(--ink-roast); margin-bottom: 2rem; }
+    .inquiry-recap { background: var(--bg-parchment); border: 1px solid var(--border-hairline); border-radius: 8px; padding: 1.35rem 1.5rem; margin-bottom: 2rem; display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+    .recap-item span { display: block; font-family: var(--font-mono); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-muted); }
+    .recap-item strong { font-size: 0.96rem; color: var(--ink-espresso); }
+    .next-steps { border-top: 1px solid var(--border-hairline); padding-top: 1.75rem; margin-bottom: 2.25rem; }
+    .next-steps h2 { font-family: var(--font-display); font-size: 1.35rem; margin-bottom: 1rem; }
+    .next-steps ol { padding-left: 1.25rem; color: var(--ink-roast); font-size: 0.95rem; }
+    .next-steps li { margin-bottom: 0.65rem; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; padding: 0.75rem 1.4rem; border-radius: 6px; font-weight: 600; font-size: 0.92rem; text-decoration: none; cursor: pointer; transition: all 0.2s ease; background-color: var(--accent-crema); color: #fff; border: none; }
+    .btn:hover { background-color: var(--accent-crema-hover); }
+    .site-footer { max-width: 1180px; width: 100%; margin: 0 auto; padding: 2.5rem 1.5rem 4rem; border-top: 1px solid var(--border-hairline); font-size: 0.85rem; color: var(--ink-muted); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+    .gtm-lab-toggle { position: fixed; bottom: 1.25rem; right: 1.25rem; z-index: 99; background: var(--ink-espresso); color: var(--bg-oat); border: 1px solid hsla(34, 42%, 96%, 0.25); border-radius: 8px; padding: 0.65rem 1rem; font-family: var(--font-mono); font-size: 0.78rem; cursor: pointer; box-shadow: 0 10px 25px rgba(0,0,0,0.22); display: flex; align-items: center; gap: 0.5rem; }
+    .gtm-lab-dot { width: 8px; height: 8px; border-radius: 50%; background: #22c55e; }
+    .gtm-lab-drawer { position: fixed; bottom: 4.25rem; right: 1.25rem; width: min(460px, calc(100vw - 2.5rem)); max-height: 75vh; overflow-y: auto; z-index: 99; background: #171311; color: #f5efe6; border: 1px solid #3a302b; border-radius: 10px; padding: 1.25rem; font-family: var(--font-mono); font-size: 0.76rem; box-shadow: 0 20px 50px rgba(0,0,0,0.4); display: none; }
+    .gtm-lab-drawer.open { display: block; }
+    .gtm-lab-log { background: #0e0b0a; border: 1px solid #2e2622; border-radius: 6px; padding: 0.75rem; margin-top: 0.75rem; max-height: 240px; overflow-y: auto; white-space: pre-wrap; word-break: break-word; color: #a7f3d0; }
+    @media (max-width: 640px) { .confirmation-card { padding: 2rem 1.5rem; } .inquiry-recap { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PRMMQVHL"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <div class="top-notice">
+    Serving Mountain View, Los Altos &amp; Sunnyvale &bull; <strong>Exclusively Friday Afternoons (12pm–9pm), Saturdays &amp; Sundays</strong>
+  </div>
+
+  <header class="site-header">
+    <nav class="nav-container" aria-label="Main Navigation">
+      <a href="index.html" class="brand">
+        <span class="brand-mark" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M17 8h1a4 4 0 1 1 0 8h-1" />
+            <path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z" />
+            <line x1="6" y1="2" x2="6" y2="4" />
+            <line x1="10" y1="2" x2="10" y2="4" />
+            <line x1="14" y1="2" x2="14" y2="4" />
+          </svg>
+        </span>
+        <span class="brand-text">
+          <span class="brand-name">Pourin' with Loren</span>
+          <span class="brand-sub">V60 &amp; Aeropress Bar</span>
+        </span>
+      </a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="confirmation-card" aria-labelledby="thank-you-heading">
+      <div class="status-badge">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <path d="M20 6 9 17l-5-5" />
+        </svg>
+        <span>Inquiry Received</span>
+      </div>
+
+      <h1 id="thank-you-heading">
+        Thank you<span id="visitor-name-heading"></span>—we'll <em>reach out to you</em> shortly.
+      </h1>
+
+      <p class="lead-message">
+        We've received your weekend barista inquiry for Mountain View. Our head barista is reviewing our Friday afternoon through Sunday schedule and will reach out to you personally within <strong>24 hours</strong> to confirm availability and share a custom quote for your gathering.
+      </p>
+
+      <div class="inquiry-recap" aria-label="Your Inquiry Summary">
+        <div class="recap-item">
+          <span>Inquiry Reference</span>
+          <strong id="recap-lead-id">MVB-102948</strong>
+        </div>
+        <div class="recap-item">
+          <span>Gathering Type</span>
+          <strong id="recap-event-type">At-Home Party / Backyard Gathering</strong>
+        </div>
+        <div class="recap-item">
+          <span>Preferred Window</span>
+          <strong id="recap-slot">Saturday Daytime</strong>
+        </div>
+        <div class="recap-item">
+          <span>Guest Count &amp; Area</span>
+          <strong id="recap-guests">30–60 Guests (ZIP 94041)</strong>
+        </div>
+      </div>
+
+      <div class="next-steps">
+        <h2>What to Expect Next</h2>
+        <ol>
+          <li><strong>Calendar check:</strong> We confirm your weekend slot.</li>
+          <li><strong>Quote:</strong> You'll get an email within 24 hours.</li>
+        </ol>
+      </div>
+
+      <a href="index.html" class="btn" id="btn-return-home">&larr; Return to Pourin' with Loren Homepage</a>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div>
+      <strong>Pourin' with Loren — Mountain View Private Barista Collective</strong><br />
+      Castro Street &bull; Old Mountain View &bull; Shoreline West &bull; Los Altos
+    </div>
+    <div>
+      Questions? Reach out via the booking form or reply directly to your confirmation email.
+    </div>
+  </footer>
+
+  <button type="button" class="gtm-lab-toggle" id="btn-toggle-gtm-lab" onclick="document.getElementById('gtm-lab-drawer').classList.toggle('open')">
+    <span class="gtm-lab-dot"></span>
+    <span>GTM &amp; dataLayer Lab</span>
+  </button>
+
+  <aside class="gtm-lab-drawer" id="gtm-lab-drawer" aria-label="Google Tag Manager Practice Helper">
+    <h4 style="color: #f7b267; margin-bottom: 0.4rem;">Thank-You Page dataLayer</h4>
+    <p style="color: #cbd5e1;">
+      Active Container: <strong id="lab-active-gtm-id" style="color: #fff;">GTM-PRMMQVHL</strong>
+    </p>
+    <div class="gtm-lab-log" id="gtm-lab-log"></div>
+  </aside>
+
+  <script>
+    (function() {
+      var info = window.__LEAD_CONFIRMATION__ || {};
+      var labelMap = {
+        v60_bar: 'The V60 Bar',
+        aeropress_lab: 'The Aeropress Lab',
+        tasting_flight: 'The Tasting Flight',
+        not_sure: 'Not sure yet',
+        friday_afternoon: 'Fri afternoon (12–5 PM)',
+        friday_evening: 'Fri evening (5–9 PM)',
+        saturday_daytime: 'Sat daytime (8 AM–4 PM)',
+        saturday_evening: 'Sat evening (4–9 PM)',
+        sunday_daytime: 'Sun daytime (8 AM–6 PM)'
+      };
+
+      if (info.firstName && info.firstName !== 'Friend') {
+        document.getElementById('visitor-name-heading').textContent = ', ' + info.firstName;
+      }
+      document.getElementById('recap-lead-id').textContent = info.leadId || 'MVB-102948';
+      document.getElementById('recap-event-type').textContent = labelMap[info.eventType] || info.eventType;
+      document.getElementById('recap-slot').textContent = labelMap[info.slot] || info.slot;
+      document.getElementById('recap-guests').textContent = (info.guests || '30–60') + ' Guests (ZIP ' + (info.zip || '94041') + ')';
+
+      document.getElementById('gtm-lab-log').textContent =
+        '// Fired on thank-you.html load:\n' +
+        JSON.stringify(window.dataLayer[0], null, 2);
+    })();
+  </script>
+</body>
+</html>
