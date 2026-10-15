@@ -163,6 +163,41 @@
     .extra-option input { accent-color: var(--diamine-green); width: 16px; height: 16px; padding: 0; border: none; box-shadow: none !important; flex-shrink: 0; }
     .extra-option:has(input:checked) { background: var(--eosine-pink); }
 
+    .form-consent-box {
+      background: var(--paper-dim);
+      border: var(--line);
+      border-radius: 10px;
+      padding: 0.85rem 1rem;
+      margin: 1.15rem 0 0.85rem;
+      font-size: 0.8rem;
+      line-height: 1.45;
+      color: var(--black);
+    }
+    .form-consent-box a {
+      color: var(--diamine-green);
+      font-weight: 600;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .consent-checkbox-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.65rem;
+      margin-top: 0.65rem;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--black);
+      cursor: pointer;
+    }
+    .consent-checkbox-row input[type="checkbox"] {
+      width: 17px;
+      height: 17px;
+      margin-top: 2px;
+      accent-color: var(--diamine-green);
+      flex-shrink: 0;
+      cursor: pointer;
+    }
+
     /* Submit button: "coffee pour" fill on hover + pouring-kettle cursor (set via JS below) */
     #btn-submit-lead {
       width: 100%; padding: 0.95rem 1.5rem; font-size: 1rem; margin-top: 0.5rem;
@@ -459,6 +494,19 @@
             <input type="hidden" name="_subject" value="New booking inquiry — Pourin' with Loren" />
             <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none" aria-hidden="true" />
 
+            <div class="form-consent-box">
+              <div style="font-size: 0.72rem; font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.08em; color: var(--burnt-sienna); font-weight: 600; margin-bottom: 0.35rem;">
+                California Notice at Collection &amp; Communications Consent
+              </div>
+              <p style="margin: 0; font-size: 0.78rem; opacity: 0.9;">
+                We collect your contact details solely to confirm availability and provide event quotes. We <strong>never sell or share</strong> your personal information. By submitting your phone and email, you consent to receive booking communications (email, call, or text) from Pourin' with Loren. Consent is not a condition of purchase.
+              </p>
+              <label class="consent-checkbox-row">
+                <input type="checkbox" id="terms_consent" name="terms_consent" required />
+                <span>I agree to the <a href="terms.html" target="_blank">Terms of Service</a> and acknowledge the <a href="privacy.html" target="_blank">California Notice at Collection &amp; Privacy Policy</a>. *</span>
+              </label>
+            </div>
+
             <p id="form-error" role="alert" style="display:none; margin-bottom: 0.75rem; padding: 0.6rem 0.8rem; border: 2px solid var(--black); border-radius: 8px; background: var(--eosine-pink); font-weight: 600; font-size: 0.9rem;"></p>
 
             <button type="submit" class="btn btn-primary" id="btn-submit-lead">
@@ -616,8 +664,17 @@
       var form = document.getElementById('lead-booking-form');
       var submitBtn = document.getElementById('btn-submit-lead');
       var errorEl = document.getElementById('form-error');
-      var originalBtnText = submitBtn.innerHTML;
+      var consentCheckbox = document.getElementById('terms_consent');
       errorEl.style.display = 'none';
+
+      if (consentCheckbox && !consentCheckbox.checked) {
+        errorEl.textContent = 'Please check the box to agree to the Terms of Service and acknowledge the California Notice at Collection.';
+        errorEl.style.display = 'block';
+        consentCheckbox.focus();
+        return;
+      }
+
+      var originalBtnText = submitBtn.innerHTML;
       submitBtn.disabled = true;
       submitBtn.innerHTML = 'Pouring your request&hellip;';
 
